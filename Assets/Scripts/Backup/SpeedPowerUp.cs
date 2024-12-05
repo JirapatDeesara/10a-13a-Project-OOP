@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpeedPowerUp : PowerUp
+/*public class SpeedPowerUp : GetItem
 {
     public float speedMultiplier = 2.0f;
     public float duration = 5.0f;
     public override void ApplyPowerUp(Player player)
     {
-        player.PowerUp(speedMultiplier, duration);
+        player.GetItem(speedMultiplier, duration);
     }
 
-}//End Speed
+}//End Speed*/

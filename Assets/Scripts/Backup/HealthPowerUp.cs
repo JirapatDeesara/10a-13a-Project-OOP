@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthPowerUp : PowerUp
+/*public class HealthPowerUp : GetItem
 {
     public int healthIncrease;
     private void Start()
@@ -11,6 +11,6 @@ public class HealthPowerUp : PowerUp
     }
     public override void ApplyPowerUp(Player player)
     {
-        player.PowerUp(healthIncrease);
+        player.GetItem(healthIncrease);
     }
-}// End HealthPowerUp
+}// End HealthPowerUp*/

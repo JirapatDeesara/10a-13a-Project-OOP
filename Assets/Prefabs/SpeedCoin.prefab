@@ -12,8 +12,6 @@ GameObject:
   - component: {fileID: 7597365366714530056}
   - component: {fileID: 471210092643643161}
   - component: {fileID: 4177716362270315371}
-  - component: {fileID: 8588697551462102451}
-  - component: {fileID: 7417230132668822268}
   m_Layer: 0
   m_Name: SpeedCoin
   m_TagString: Untagged
@@ -144,29 +142,3 @@ CircleCollider2D:
   m_Offset: {x: -0.00000023841858, y: 0}
   serializedVersion: 2
   m_Radius: 0.2868688
---- !u!114 &8588697551462102451
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7808565964763761056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 703880367537ca5459191c50ceb56ee6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedMultiplier: 2
-  duration: 5
---- !u!114 &7417230132668822268
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7808565964763761056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edb3a5e3ca452b843b4e3cddd5156ac0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
