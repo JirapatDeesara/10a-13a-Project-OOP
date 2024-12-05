@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         speed = 500f;
-        jumpSpeed = 15f;
+        jumpSpeed = 10f;
     }
 
     void Update()
