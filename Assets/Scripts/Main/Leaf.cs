@@ -22,8 +22,12 @@ public override void Move()
 }
 public override void OnHitWith(Character character)
 {
-    if (character is Enemy)
-        character.TakeDamage(this.Damage); //ไม่ใช้ this ก็ได้ แต่มีดีกว่า
+        if (character is Enemy)
+        { 
+            character.TakeDamage(this.Damage);
+        }
+        //if (character is Enemy)
+        //{ character.TakeDamage(this.Damage); } //ไม่ใช้ this ก็ได้ แต่มีดีกว่า
    
 }
 
@@ -31,4 +35,5 @@ void FixedUpdate()
 {
     Move();
 }
+
 }

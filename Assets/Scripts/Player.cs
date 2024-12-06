@@ -8,8 +8,8 @@ using UnityEngine;
     {
         public Player player;
 
-        protected int health = 100; // ตั้งเป็น protected เพื่อให้เข้าถึงได้ในคลาสลูก
-        public int Health => health;
+        //protected int health = 100; // ตั้งเป็น protected เพื่อให้เข้าถึงได้ในคลาสลูก
+        //public int Health => health;
         int cat = 0;
         /*public int Health => health; //read only property
         public int currentHealth;
@@ -35,7 +35,7 @@ using UnityEngine;
     void Start()
         {
         Init(100);
-        ReloadTime = 2.0f;
+        ReloadTime = 1.0f;
         WaitTime = 0f;
         //currentHealth = health;
         //healthBar.SetMaxHealth(health);
@@ -80,12 +80,12 @@ using UnityEngine;
             }
         }
 
-        public void GetItem(int healthIncrease)
+        /*public void GetItem(int healthIncrease)
         {
             health += healthIncrease;
             Debug.Log($"Health increased by {healthIncrease}. New health: {health}");
             UpdateHealthText();
-        }
+        }*/
     /*public void GetItem(int foundCat)
     {
         cat += foundCat;
@@ -166,10 +166,11 @@ using UnityEngine;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+        Enemy enemy = collision.gameObject.GetComponent<Enemy>(); 
         if (enemy != null)
         {
             OnHitWith(enemy);
+            Debug.Log($"{this.name} hit with {enemy.name} dealing {enemy.DamageHit} Damage.");
         }
     }
 
