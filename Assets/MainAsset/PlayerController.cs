@@ -5,31 +5,68 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public Rigidbody2D rb2d;
+    public Rigidbody2D r2d;
+    Animator anim;
     Vector2 move;
     float moveX;
     [SerializeField] float speed;
     [SerializeField] float jumpSpeed;
 
+
+    public bool grounded = false;
+    public Transform groundCheck;
+    float groundRadius = 0.2f;
+    public LayerMask whatIsGround;
+    public float jumpForce = 700.0f;
+    public float maxSpeed = 10f;
+    bool facingRight = true;
+
     void Start()
     {
-        speed = 500f;
+        speed = 50f;
         jumpSpeed = 10f;
+        r2d = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
     {
         moveX = Input.GetAxisRaw("Horizontal");
-        rb2d.velocity = new Vector2(moveX * speed * Time.fixedDeltaTime, rb2d.velocity.y);
+        r2d.velocity = new Vector2(moveX * speed * Time.fixedDeltaTime, r2d.velocity.y);
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            rb2d.velocity = new Vector2(0, jumpSpeed);
+            r2d.velocity = new Vector2(0, jumpSpeed);
         }
+        
     }
+
+    void Flip()
+    {
+        facingRight = !facingRight;
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
+    }
+    
 
     private void FixedUpdate()
     {
+        grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
+        //anim.SetBool("Ground", grounded);
+
+        //anim.SetFloat("vSpeed", r2d.velocity.y);
+
+        float move = Input.GetAxis("Horizontal");
+
+        //anim.SetFloat("Speed", Mathf.Abs(move));
+
+        r2d.velocity = new Vector2(move * maxSpeed, r2d.velocity.y);
+
+        if (move > 0 && !facingRight)
+            Flip();
+        else if (move < 0 && facingRight)
+            Flip();
         //rb2d.velocity = new Vector2(moveX * speed * Time.fixedDeltaTime, rb2d.velocity.y);
     }
 }

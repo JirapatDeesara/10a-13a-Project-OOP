@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    [SerializeField] private int health; //ตั้งชื่อตามprob มันเป็นสูตร ชื่อแบบเดียวกันเป๊ะแต่ตัวหน้าตัวเล็ก [SerializeField]=ขึ้นให้ดูได้
+    private int health; //ตั้งชื่อตามprob มันเป็นสูตร ชื่อแบบเดียวกันเป๊ะแต่ตัวหน้าตัวเล็ก [SerializeField]=ขึ้นให้ดูได้
     public HealthBar healthBar;
     public int currentHealth;
+
     /*public void Init(int newHealth) //เวลาเอาคอนสตรักออกใช้แบบนี้แทน
     { Health = newHealth; }*/
     public int Health

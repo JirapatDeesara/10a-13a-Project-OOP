@@ -4,9 +4,12 @@ using TMPro;
 using UnityEngine;
 
 
-    public class Player : Character
+    public class Player : Character , IShootable
     {
-        int health = 100;
+        public Player player;
+
+        protected int health = 100; // ตั้งเป็น protected เพื่อให้เข้าถึงได้ในคลาสลูก
+        public int Health => health;
         int cat = 0;
         /*public int Health => health; //read only property
         public int currentHealth;
@@ -26,23 +29,27 @@ using UnityEngine;
 
 
 
-        [SerializeField] TextMeshProUGUI healthTxt, strengthTxt, speedTxt;
+    [SerializeField] TextMeshProUGUI healthTxt, strengthTxt, speedTxt;
     private object catDiscoverTxt;
 
     void Start()
         {
-           currentHealth = health;
-           healthBar.SetMaxHealth(health);
-            originalSpeed = speed;
-            UpdateHealthText();
-            UpdateSpeedText();
-            UpdateStrengthText();
+        Init(100);
+        ReloadTime = 2.0f;
+        WaitTime = 0f;
+        //currentHealth = health;
+        //healthBar.SetMaxHealth(health);
+        originalSpeed = speed;
+        UpdateHealthText();
+        UpdateSpeedText();
+        UpdateStrengthText();
 
         }
 
         void Update()
         {
-            UpdateSpeedBoostTimer();
+        Shoot();
+        UpdateSpeedBoostTimer();
         /*Checking HP Bar damage by pressing Spacebar
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -52,12 +59,11 @@ using UnityEngine;
     }
 
     // Method for taking Damage to Update HP UI
-    public void TakeDamage(int damage)
+    /*public void TakeDamage(int damage)
     { 
         currentHealth -= damage;
-
         healthBar.UpdateHealthBar(currentHealth);
-    }// End TakeDamage
+    }// End TakeDamage*/
         void UpdateSpeedBoostTimer()
         {
             if (isSpeedBoostActive)
@@ -124,8 +130,9 @@ using UnityEngine;
     {
         catDiscoverTxt.text = $"Speed: {Speed}";
     }*/
+
     //เว้น
-    public Player player;
+    
 
     [field: SerializeField] //อยากโชว์ในUnity ใช้แบบนี้กับ ตัวแปร public แต่เขียนเต็มยศแค่ [SerializeField] ได้
     GameObject bullet;
@@ -146,15 +153,29 @@ using UnityEngine;
         if (Input.GetButtonDown("Fire1") && WaitTime >= ReloadTime)  //ไม่รู้ปุ่มชื่อไร ไปหาดูใน Unity ใช้GetMouseButtonDown ถึงจะใช้รหัสเมาส์
         {
             GameObject obj = Instantiate(Bullet, BulletSpawnPoint.position, Quaternion.identity);
-            Banana banana = obj.GetComponent<Banana>();
-            banana.Init(10, this);
+            Leaf leaf = obj.GetComponent<Leaf>();
+            leaf.Init(10, this);
             WaitTime = 0;
+        }
+    }
+    
+    private void FixedUpdate()
+    {
+        WaitTime += Time.deltaTime;
+    }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+        if (enemy != null)
+        {
+            OnHitWith(enemy);
         }
     }
 
-
-
-
+    public void OnHitWith(Enemy enemy)
+    {
+        TakeDamage(enemy.DamageHit);
+    }
 }
 

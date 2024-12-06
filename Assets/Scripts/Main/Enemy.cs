@@ -17,10 +17,7 @@ public abstract class Enemy : Character
         }
     }
 
-    private void Start()
-    {
-        Behaviour();
-    }
+    
 
     public abstract void Behaviour(); //ทำยังไงให้เป็น Abstact -> แทรกตรงกลาง ลบ {} ใส่; ต่อท้ายเลย
 

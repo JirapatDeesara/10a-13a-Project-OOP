@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour
 {
+    protected string owner;
     [SerializeField] private int damage;
     public int Damage
     {
@@ -30,7 +31,7 @@ public abstract class Weapon : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) //อาวุธตีโดน
     {
         OnHitWith(other.GetComponent<Character>());
-        Destroy(this.gameObject, 5f); // ตัว...f คือหน่วงเวลาทำลาย
+        Destroy(this.gameObject, 4f); // ตัว...f คือหน่วงเวลาทำลาย
 
     }
 
