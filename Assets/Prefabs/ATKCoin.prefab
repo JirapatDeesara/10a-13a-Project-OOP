@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 624631418686659190}
   - component: {fileID: 7204975231794284227}
   - component: {fileID: 7744845540862054031}
+  - component: {fileID: 2372854193032831948}
   m_Layer: 0
   m_Name: ATKCoin
   m_TagString: Untagged
@@ -142,3 +143,15 @@ CircleCollider2D:
   m_Offset: {x: 0.0021452904, y: 0}
   serializedVersion: 2
   m_Radius: 0.29208708
+--- !u!114 &2372854193032831948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6107389240294952401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 466704340fcdcdf4f99416474f6304ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Bat : Enemy, IShootable
 {
+
     float attackRange;
     public float AttackRange { get { return attackRange; } set { attackRange = value; } }
-
     public Player player;
 
     [field: SerializeField] //อยากโชว์ในUnity ใช้แบบนี้กับ ตัวแปร public แต่เขียนเต็มยศแค่ [SerializeField] ได้

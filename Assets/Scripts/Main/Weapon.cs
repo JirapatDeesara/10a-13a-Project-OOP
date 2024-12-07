@@ -5,7 +5,7 @@ using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour
 {
-    protected string owner;
+   
     [SerializeField] private int damage;
     public int Damage
     {

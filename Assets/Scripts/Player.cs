@@ -15,8 +15,8 @@ using UnityEngine;
     public int currentHealth;
     public HealthBar healthBar;*/
 
-    float strength = 10.0f;
-        public float Strength => strength;
+    float point = 10.0f;
+        public float Point => point;
 
         float speed = 5.0f;
         public float Speed => speed;
@@ -29,7 +29,7 @@ using UnityEngine;
 
 
 
-    [SerializeField] TextMeshProUGUI healthTxt, strengthTxt, speedTxt, catDiscoverTxt;
+    [SerializeField] TextMeshProUGUI  pointTxt, speedTxt, catDiscoverTxt;
     //private object catDiscoverTxt;
 
     void Start()
@@ -39,7 +39,7 @@ using UnityEngine;
         WaitTime = 0f;
         originalSpeed = speed;
         UpdateSpeedText();
-        UpdateStrengthText();
+        UpdatePointText();
         UpdateCatDiscoverText();
         }
 
@@ -75,11 +75,11 @@ using UnityEngine;
     }
     
 
-    public void GetItem(float atkMultiplier)
-        {
-            strength *= atkMultiplier;
-            UpdateStrengthText();
-            Debug.Log($"Strength  increased by {atkMultiplier * 100}%. New Strength: {strength}");
+      public void GetItem(float pointMultiplier)
+    {
+            point *= pointMultiplier;
+            UpdatePointText();
+            Debug.Log($"Point  increased by {pointMultiplier * 100}%. New Point: {point}");
         }
         public void GetItem(float speedMultiplier, float duration)
         {
@@ -94,9 +94,9 @@ using UnityEngine;
             }
         }
 
-        void UpdateStrengthText()
+        void UpdatePointText()
         {
-            strengthTxt.text = $"Strength: {Strength}";
+            pointTxt.text = $"Point: {Point}";
         }
 
         void UpdateSpeedText()

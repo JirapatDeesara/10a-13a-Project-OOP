@@ -5,8 +5,7 @@ using UnityEngine;
 public class PickUpItemController : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
-    {
-
+    { 
         Debug.Log("Hit");
         if (other.CompareTag("Player"))
         {

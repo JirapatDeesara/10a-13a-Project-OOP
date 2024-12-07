@@ -17,11 +17,15 @@ public class FatBird : Enemy
         healthBar.SetMaxHealth(100);
 
     }
+    public void FixedUpdate()
+    {
+        Behaviour();
+    }
     public override void Behaviour() 
     {
-        if (currentHealth <= 30)
+        if (Health < 30)
         {
-            currentHealth = +10;
+           Health += 10;
         }
 
     }
