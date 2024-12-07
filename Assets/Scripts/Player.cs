@@ -9,9 +9,6 @@ using UnityEngine;
     {
         public Player player;
 
-        protected int health = 0; // ตั้งเป็น protected เพื่อให้เข้าถึงได้ในคลาสลูก
-        public int Health => health;
-
          protected int cat = 0; // ตั้งเป็น protected เพื่อให้เข้าถึงได้ในคลาสลูก
          public int Cat => cat;
     /*public int Health => health; //read only property
