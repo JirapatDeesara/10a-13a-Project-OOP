@@ -5,14 +5,14 @@ using UnityEngine;
 public class HealthBoost : GetItem
 
 {
-    
-    int healthIncrease;
+
+    int foundCat;
     private void Start()
     {
-        healthIncrease = 20;
+        foundCat =+ 1;
     }
     public override void ApplyItem(Player player)
     {
-        player.GetItem(healthIncrease);
+        player.GetItem(foundCat);
     }
 }

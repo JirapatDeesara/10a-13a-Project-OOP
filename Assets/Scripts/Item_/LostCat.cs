@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LostCat : GetItem
+
 {
-    int foundcat;
+
+    int foundCat;
     private void Start()
     {
-        foundcat =+ 1;
+        foundCat =+ 1;
     }
     public override void ApplyItem(Player player)
     {
-        player.GetItem(foundcat);
+        player.GetItem(foundCat);
     }
 }

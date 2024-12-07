@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -8,14 +9,16 @@ using UnityEngine;
     {
         public Player player;
 
-        //protected int health = 100; // ตั้งเป็น protected เพื่อให้เข้าถึงได้ในคลาสลูก
-        //public int Health => health;
-        int cat = 0;
-        /*public int Health => health; //read only property
-        public int currentHealth;
-        public HealthBar healthBar;*/
- 
-        float strength = 10.0f;
+        protected int health = 0; // ตั้งเป็น protected เพื่อให้เข้าถึงได้ในคลาสลูก
+        public int Health => health;
+
+         protected int cat = 0; // ตั้งเป็น protected เพื่อให้เข้าถึงได้ในคลาสลูก
+         public int Cat => cat;
+    /*public int Health => health; //read only property
+    public int currentHealth;
+    public HealthBar healthBar;*/
+
+    float strength = 10.0f;
         public float Strength => strength;
 
         float speed = 5.0f;
@@ -29,27 +32,28 @@ using UnityEngine;
 
 
 
-    [SerializeField] TextMeshProUGUI healthTxt, strengthTxt, speedTxt;
-    private object catDiscoverTxt;
+    [SerializeField] TextMeshProUGUI healthTxt, strengthTxt, speedTxt, catDiscoverTxt;
+    //private object catDiscoverTxt;
 
     void Start()
         {
-        Init(100);
+        Init(200);
         ReloadTime = 1.0f;
         WaitTime = 0f;
         //currentHealth = health;
         //healthBar.SetMaxHealth(health);
         originalSpeed = speed;
-        UpdateHealthText();
+        //UpdateHealthText();
         UpdateSpeedText();
         UpdateStrengthText();
-
+        UpdateCatDiscoverText();
         }
 
         void Update()
         {
         Shoot();
         UpdateSpeedBoostTimer();
+        //UpdateHealthText();
         /*Checking HP Bar damage by pressing Spacebar
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -80,18 +84,20 @@ using UnityEngine;
             }
         }
 
-        /*public void GetItem(int healthIncrease)
-        {
-            health += healthIncrease;
-            Debug.Log($"Health increased by {healthIncrease}. New health: {health}");
-            UpdateHealthText();
-        }*/
-    /*public void GetItem(int foundCat)
+    public void GetItem(int foundCat)
     {
         cat += foundCat;
         Debug.Log($"Found {foundCat}. New Discover: {cat}");
+        Debug.Log($"Cat found {cat} out of 6");
         UpdateCatDiscoverText();
-    }*/
+    }
+    /*public void GetItem(int healthIncrease)
+        {
+            health += healthIncrease;
+            Debug.Log($"Found cat {healthIncrease}. New health: {health}");
+            UpdateHealthText();
+        } */
+    
 
     public void GetItem(float atkMultiplier)
         {
@@ -112,10 +118,12 @@ using UnityEngine;
             }
         }
 
+    /*
         void UpdateHealthText()
         {
             healthTxt.text = $"Health: {Health}";
-        }
+        } 
+       */
 
         void UpdateStrengthText()
         {
@@ -125,14 +133,23 @@ using UnityEngine;
         void UpdateSpeedText()
         {
             speedTxt.text = $"Speed: {Speed}";
-        }
-    /*void UpdateCatDiscoverText()
+    }
+    void UpdateCatDiscoverText()
     {
-        catDiscoverTxt.text = $"Speed: {Speed}";
-    }*/
+        if (cat < 6)
+        { catDiscoverTxt.text = $"Cat found {cat}/6"; }
+
+        if (cat >= 6)
+        {
+            catDiscoverTxt.text = $"YOU WIN!!!!";
+            Debug.Log($"You found all {cat}");
+            Debug.Log("You win!!!!");
+        }
+
+    }
 
     //เว้น
-    
+
 
     [field: SerializeField] //อยากโชว์ในUnity ใช้แบบนี้กับ ตัวแปร public แต่เขียนเต็มยศแค่ [SerializeField] ได้
     GameObject bullet;
@@ -179,4 +196,3 @@ using UnityEngine;
         TakeDamage(enemy.DamageHit);
     }
 }
-

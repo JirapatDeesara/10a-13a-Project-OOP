@@ -21,7 +21,7 @@ public class Character : MonoBehaviour
             health = value;
         }
     }
-
+   
     public Animator anim; //+ คือ public
     public Rigidbody2D rb;
 
