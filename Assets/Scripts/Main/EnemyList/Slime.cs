@@ -33,7 +33,6 @@ public class Slime : Enemy, IShootable
     public override void Behaviour() //ต้องมีเพราะ Enemy อยากได้ไม่มีระเบิด ตรง abstract เป็น override แทน
     {
         Vector2 direction = player.transform.position - transform.position;
-        //if (distance.magnitude <= attackRange)
         float distance = direction.magnitude;
         {
             Shoot();
@@ -45,8 +44,6 @@ public class Slime : Enemy, IShootable
 
         if (WaitTime >= ReloadTime)
         {
-            //anim.SetTrigger("Shoot");
-
             GameObject obj = Instantiate(Bullet, BulletSpawnPoint.position, Quaternion.identity);
             Acid acid = obj.GetComponent<Acid>(); // obj ก็อปสคริปของที่สไลม์โยน
             acid.Init(20, this); //this คือตัวSlime

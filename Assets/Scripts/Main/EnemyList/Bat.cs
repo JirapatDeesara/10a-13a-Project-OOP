@@ -33,7 +33,7 @@ public class Bat : Enemy, IShootable
     public override void Behaviour() //ต้องมีเพราะ Enemy อยากได้ไม่มีระเบิด ตรง abstract เป็น override แทน
     {
         Vector2 direction = player.transform.position - transform.position;
-        //if (distance.magnitude <= attackRange)
+        
         float distance = direction.magnitude;
         {
             Shoot();
@@ -45,7 +45,6 @@ public class Bat : Enemy, IShootable
 
         if (WaitTime >= ReloadTime)
         {
-            //anim.SetTrigger("Shoot");
             GameObject obj = Instantiate(Bullet, BulletSpawnPoint.position, Quaternion.identity); //อันนี้คือหิน
             Fruit fruit = obj.GetComponent<Fruit>(); // obj ก็อปสคริปของที่ค้างคาว
             fruit.Init(20, this); //this คือตัวค้างคาว

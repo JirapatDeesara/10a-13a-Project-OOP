@@ -44,7 +44,4 @@ public abstract class Weapon : MonoBehaviour
         else return -1; //ยิงด้านซ้าย
     }
 
-
-
-
 }

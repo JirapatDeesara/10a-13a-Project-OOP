@@ -7,9 +7,6 @@ public class Character : MonoBehaviour
     private int health; //ตั้งชื่อตามprob มันเป็นสูตร ชื่อแบบเดียวกันเป๊ะแต่ตัวหน้าตัวเล็ก [SerializeField]=ขึ้นให้ดูได้
     public HealthBar healthBar;
     public int currentHealth;
-
-    /*public void Init(int newHealth) //เวลาเอาคอนสตรักออกใช้แบบนี้แทน
-    { Health = newHealth; }*/
     public int Health
     {
         get
@@ -33,7 +30,6 @@ public class Character : MonoBehaviour
             return true;
         }
         else return false;
-        //return Health <= 0;
     }
 
     public void TakeDamage(int damage)

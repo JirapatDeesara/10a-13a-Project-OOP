@@ -26,9 +26,6 @@ public override void OnHitWith(Character character)
         { 
             character.TakeDamage(this.Damage);
         }
-        //if (character is Enemy)
-        //{ character.TakeDamage(this.Damage); } //ไม่ใช้ this ก็ได้ แต่มีดีกว่า
-   
 }
 
 void FixedUpdate()

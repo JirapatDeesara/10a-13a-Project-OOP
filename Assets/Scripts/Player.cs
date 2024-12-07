@@ -40,10 +40,7 @@ using UnityEngine;
         Init(200);
         ReloadTime = 1.0f;
         WaitTime = 0f;
-        //currentHealth = health;
-        //healthBar.SetMaxHealth(health);
         originalSpeed = speed;
-        //UpdateHealthText();
         UpdateSpeedText();
         UpdateStrengthText();
         UpdateCatDiscoverText();
@@ -53,21 +50,9 @@ using UnityEngine;
         {
         Shoot();
         UpdateSpeedBoostTimer();
-        //UpdateHealthText();
-        /*Checking HP Bar damage by pressing Spacebar
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-            TakeDamage(20);
-            }
-        */
     }
 
-    // Method for taking Damage to Update HP UI
-    /*public void TakeDamage(int damage)
-    { 
-        currentHealth -= damage;
-        healthBar.UpdateHealthBar(currentHealth);
-    }// End TakeDamage*/
+    
         void UpdateSpeedBoostTimer()
         {
             if (isSpeedBoostActive)
@@ -91,12 +76,6 @@ using UnityEngine;
         Debug.Log($"Cat found {cat} out of 6");
         UpdateCatDiscoverText();
     }
-    /*public void GetItem(int healthIncrease)
-        {
-            health += healthIncrease;
-            Debug.Log($"Found cat {healthIncrease}. New health: {health}");
-            UpdateHealthText();
-        } */
     
 
     public void GetItem(float atkMultiplier)
@@ -117,13 +96,6 @@ using UnityEngine;
                 Debug.Log($"Speed boosted by {speedMultiplier * 100}% for {duration} seconds.");
             }
         }
-
-    /*
-        void UpdateHealthText()
-        {
-            healthTxt.text = $"Health: {Health}";
-        } 
-       */
 
         void UpdateStrengthText()
         {
