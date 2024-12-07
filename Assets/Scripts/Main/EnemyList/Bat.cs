@@ -6,7 +6,7 @@ public class Bat : Enemy, IShootable
 {
 
     float attackRange;
-    public float AttackRange { get { return attackRange; } set { attackRange = value; } }
+    public float AttackRange { get { return attackRange; } set { attackRange = value; } } //เพื่อความปลอดภัยของโค้ด
     public Player player;
 
     [field: SerializeField] //อยากโชว์ในUnity ใช้แบบนี้กับ ตัวแปร public แต่เขียนเต็มยศแค่ [SerializeField] ได้
@@ -63,7 +63,7 @@ public class Bat : Enemy, IShootable
     void Start()
     {
         Init(100); //เลือดค้างคาว
-        healthBar.SetMaxHealth(100);
+        healthBar.SetMaxHealth(100); 
         player = GameObject.FindObjectOfType<Player>();
 
     }
